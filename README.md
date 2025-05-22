@@ -1,5 +1,5 @@
 
-# 🤖 Nombre de tu Bot (Ej: Bot_Autopublicador)
+# 🤖  Bot_Autopublicador
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/tuusuario/turepo&envs=API_ID,API_HASH,BOT_TOKEN,GRUPO_ID,ADMIN_ID)
 
