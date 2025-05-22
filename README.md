@@ -86,22 +86,3 @@ Si deseas mejorar este proyecto:
 ## 📄 Licencia
 
 MIT © [Wito50](https://github.com/Wito50)
-```
-
----
-
-### 🔍 ¿Cómo personalizarlo?
-1. Reemplaza `[tuusuario/turepo]` por tu usuario/repositorio real
-2. Modifica la sección de características según lo que haga tu bot
-3. Añade capturas de pantalla si lo deseas (sube imágenes a tu repo y enlázalas con `![alt text](url-imagen)`)
-
----
-
-### 💡 Extra: Si quieres añadir badges (opcional)
-Puedes agregar estas líneas bajo el título para mostrar badges:
-
-```markdown
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![Telethon](https://img.shields.io/badge/telethon-1.25+-green.svg)
-![License](https://img.shields.io/badge/license-MIT-red.svg)
-```
