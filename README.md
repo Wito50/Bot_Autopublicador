@@ -1,6 +1,4 @@
-Aquí tienes un **README.md seguro y profesional** para tu repositorio, sin exponer credenciales y listo para usar (solo copia y pega):
 
-```markdown
 # 🤖 Bot Autopublicador para Telegram
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Wito50/Bot_Autopublicador)
