@@ -57,18 +57,19 @@ async def mensaje_handler(event):
         await event.respond('Primero crea el mensaje con /nuevo.')
 
 # Comando para definir la imagen
-@client.on(events.NewMessage(pattern=r'/imagen (\d+) (.+)', from_users=admin_id))
-async def imagen_handler(event):
-    index = int(event.pattern_match.group(1))
-    ruta = event.pattern_match.group(2)
-    if index in mensajes:
-        if os.path.exists(ruta):
-            mensajes[index]['imagen'] = ruta
-            await event.respond(f'Imagen de mensaje {index} actualizada.')
-        else:
-            await event.respond('La imagen no existe.')
-    else:
-        await event.respond('Primero crea el mensaje con /nuevo.')
+async def autopublicar(index):
+    while mensajes[index]['activo']:
+        mensaje = mensajes[index]['mensaje']
+        file_id = mensajes[index]['file_id']  # Usa file_id en lugar de ruta local
+        try:
+            if file_id:
+                await client.send_file(grupo_id, file_id, caption=mensaje)
+            else:
+                await client.send_message(grupo_id, mensaje)
+            print(f"Mensaje {index} enviado a las {datetime.now().strftime('%H:%M:%S')}")
+        except Exception as e:
+            print(f"Error al enviar mensaje {index}: {e}")
+        await asyncio.sleep(mensajes[index]['frecuencia'])
 
 # Comando para establecer frecuencia
 @client.on(events.NewMessage(pattern=r'/frecuencia (\d+) (\d+)', from_users=admin_id))
