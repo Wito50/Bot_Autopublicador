@@ -1,88 +1,57 @@
+Aquí tienes un **README.md seguro y profesional** para tu repositorio, sin exponer credenciales y listo para usar (solo copia y pega):
 
-# 🤖  Bot_Autopublicador
+```markdown
+# 🤖 Bot Autopublicador para Telegram
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/tuusuario/turepo&envs=API_ID,API_HASH,BOT_TOKEN,GRUPO_ID,ADMIN_ID)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Wito50/Bot_Autopublicador)
 
-Bot de Telegram para publicar mensajes automáticos en grupos, desarrollado con Python y la librería Telethon.
+Bot automatizado para publicar mensajes en grupos/channels de Telegram, desarrollado con Python y Telethon.
 
-## 🚀 Características
+## 🔐 Requisitos de configuración
+Antes de comenzar, necesitarás:
+- API ID y Hash de [my.telegram.org](https://my.telegram.org/auth)
+- Token del bot (obtenido con [@BotFather](https://t.me/BotFather))
+- ID de tu grupo (debe comenzar con `-100`)
+- Tu ID de usuario (consúltalo con [@userinfobot](https://t.me/userinfobot))
 
-- ✅ Publicación programada de mensajes/imágenes
-- ✅ Multiples mensajes configurables
-- ✅ Comandos de administrador fáciles de usar
-- ✅ Despliegue sencillo en Railway.app
-
-## 📦 Requisitos
-
-- Python 3.8+
-- Cuenta de [Telegram](https://telegram.org)
-- Credenciales de [API de Telegram](https://my.telegram.org/auth)
-
-## 🛠️ Instalación local
-
-1. Clona el repositorio:
+## 🛠 Instalación local
 ```bash
-git clone https://github.com/tuusuario/turepo.git
-cd turepo
-```
-
-2. Instala dependencias:
-```bash
+git clone https://github.com/Wito50/Bot_Autopublicador.git
+cd Bot_Autopublicador
 pip install -r requirements.txt
 ```
 
-3. Configura las variables de entorno:
-```bash
-export API_ID=tu_api_id
-export API_HASH=tu_api_hash
-export BOT_TOKEN=tu_token_bot
-export GRUPO_ID=tu_id_grupo
-export ADMIN_ID=tu_id_admin
+## ⚙ Configuración
+Crea un archivo `.env` en la raíz del proyecto con:
+```ini
+API_ID=12345678
+API_HASH=tu_api_hash_telegram
+BOT_TOKEN=tu_token_de_bot
+GRUPO_ID=-1001234567890
+ADMIN_ID=1234567890
 ```
 
-4. Ejecuta el bot:
-```bash
-python main.py
-```
+## 🚀 Despliegue en Railway
+1. Haz clic en [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Wito50/Bot_Autopublicador)
+2. Completa las variables de entorno con tus credenciales
+3. ¡Listo! El bot se desplegará automáticamente
 
-## 🖥️ Comandos disponibles
+## 📋 Comandos disponibles
+| Comando | Uso | Descripción |
+|---------|-----|-------------|
+| `/nuevo [ID]` | `/nuevo 1` | Crea nueva publicación |
+| `/mensaje [ID] [texto]` | `/mensaje 1 Hola mundo` | Define texto |
+| `/imagen [ID]` | Responde a foto con `/imagen 1` | Añade imagen |
+| `/frecuencia [ID] [segundos]` | `/frecuencia 1 3600` | Establece intervalo |
+| `/empezar [ID]` | `/empezar 1` | Inicia publicación |
+| `/parar [ID]` | `/parar 1` | Detiene publicación |
+| `/estado` | `/estado` | Muestra configuración |
 
-| Comando | Descripción | Ejemplo |
-|---------|-------------|---------|
-| `/nuevo [ID]` | Crea un nuevo mensaje | `/nuevo 1` |
-| `/mensaje [ID] [texto]` | Define el texto | `/mensaje 1 Hola mundo` |
-| `/imagen [ID]` | Añade imagen (responder a foto) | `/imagen 1` |
-| `/frecuencia [ID] [segundos]` | Establece intervalo | `/frecuencia 1 3600` |
-| `/empezar [ID]` | Inicia publicación | `/empezar 1` |
-| `/parar [ID]` | Detiene publicación | `/parar 1` |
-| `/estado` | Muestra configuración | `/estado` |
-
-## ☁️ Despliegue en Railway
-
-1. Haz clic en el botón [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/tuusuario/turepo&envs=API_ID,API_HASH,BOT_TOKEN,GRUPO_ID,ADMIN_ID)
-2. Completa las variables de entorno:
-   - `API_ID`
-   - `API_HASH`
-   - `BOT_TOKEN`
-   - `GRUPO_ID`
-   - `ADMIN_ID`
-3. ¡Listo! El bot se desplegará automáticamente.
-
-## 📝 Notas importantes
-
-- Para imágenes: responde con `/imagen [ID]` a una foto que hayas enviado al bot.
-- Los IDs de grupo deben comenzar con `-100` (supergrupos).
-- En Railway, revisa los logs si hay errores.
-
-## 🤝 Contribuir
-
-Si deseas mejorar este proyecto:
-1. Haz fork del repositorio
-2. Crea una rama (`git checkout -b feature/nueva-funcion`)
-3. Haz commit de tus cambios (`git commit -am 'Añade nueva función'`)
-4. Haz push a la rama (`git push origin feature/nueva-funcion`)
-5. Abre un Pull Request
+## 🛡 Seguridad
+- Nunca compartas tu `BOT_TOKEN` o `API_HASH`
+- Usa variables de entorno (nunca las incluyas en el código)
+- Si expusiste accidentalmente tus credenciales, regenera el token con @BotFather
 
 ## 📄 Licencia
-
 MIT © [Wito50](https://github.com/Wito50)
+
