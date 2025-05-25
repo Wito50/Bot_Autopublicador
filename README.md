@@ -49,7 +49,6 @@ ADMIN_ID=1234567890
 | `/empezar [ID]` | `/empezar 1` | Inicia publicación |
 | `/parar [ID]` | `/parar 1` | Detiene publicación |
 | `/estado` | `/estado` | Muestra configuración actual |
-| `/listar` | `/listar` | Muestra todas las publicaciones configuradas |
 
 ## 🛡 Seguridad
 - Nunca compartas tu `BOT_TOKEN` o `API_HASH`
