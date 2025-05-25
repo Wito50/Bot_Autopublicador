@@ -65,15 +65,21 @@ async def mensaje_handler(event):
 @client.on(events.NewMessage(pattern=r'/imagen (\d+)', from_users=admin_id))
 async def imagen_handler(event):
     index = int(event.pattern_match.group(1))
-    if event.photo:
-        if index in mensajes:
-            mensajes[index]['file_id'] = event.photo.file_id
-            print(f"[LOG] Imagen añadida a mensaje {index}.")
+    if index not in mensajes:
+        await event.respond('Primero crea el mensaje con /nuevo.')
+        return
+
+    if event.message.media and event.message.photo:
+        try:
+            file_id = event.message.photo.file_id
+            mensajes[index]['file_id'] = file_id
+            print(f"[LOG] Imagen asignada a mensaje {index}.")
             await event.respond(f'Imagen asignada a mensaje {index}.')
-        else:
-            await event.respond('Primero crea el mensaje con /nuevo.')
+        except Exception as e:
+            print(f"[ERROR] al capturar file_id: {e}")
+            await event.respond('Error al capturar el ID de la imagen.')
     else:
-        await event.respond('Por favor, envía la imagen junto con el comando.')
+        await event.respond('Por favor, envía la imagen como foto junto con el comando.')
 
 # Comando para establecer frecuencia
 @client.on(events.NewMessage(pattern=r'/frecuencia (\d+) (\d+)', from_users=admin_id))
