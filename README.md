@@ -59,9 +59,3 @@ ADMIN_ID=1234567890
 ## 📄 Licencia
 MIT © [Wito50](https://github.com/Wito50)
 """
-
-# Guardar archivo README.md
-readme_path = Path("/mnt/data/README.md")
-readme_path.write_text(readme_content.strip())
-
-readme_path
