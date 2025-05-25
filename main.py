@@ -61,25 +61,22 @@ async def mensaje_handler(event):
     else:
         await event.respond('Primero crea el mensaje con /nuevo.')
 
-# Comando para definir la imagen
+# Comando para definir la imagen (CORREGIDO)
 @client.on(events.NewMessage(pattern=r'/imagen (\d+)', from_users=admin_id))
 async def imagen_handler(event):
     index = int(event.pattern_match.group(1))
-    if index not in mensajes:
-        await event.respond('Primero crea el mensaje con /nuevo.')
-        return
+    media = event.message.media
 
-    if event.message.media and event.message.photo:
+    if index in mensajes and media:
         try:
-            file_id = event.message.photo.file_id
-            mensajes[index]['file_id'] = file_id
-            print(f"[LOG] Imagen asignada a mensaje {index}.")
+            mensajes[index]['file_id'] = media
+            print(f"[LOG] Imagen añadida a mensaje {index}.")
             await event.respond(f'Imagen asignada a mensaje {index}.')
         except Exception as e:
             print(f"[ERROR] al capturar file_id: {e}")
-            await event.respond('Error al capturar el ID de la imagen.')
+            await event.respond('Error al capturar la imagen.')
     else:
-        await event.respond('Por favor, envía la imagen como foto junto con el comando.')
+        await event.respond('Primero crea el mensaje con /nuevo o responde a una imagen.')
 
 # Comando para establecer frecuencia
 @client.on(events.NewMessage(pattern=r'/frecuencia (\d+) (\d+)', from_users=admin_id))
@@ -150,7 +147,7 @@ async def estado_handler(event):
             f'- Frecuencia: {msg["frecuencia"]}s\n'
             f'- Duración: {msg["duracion"]}s\n'
             f'- Texto: {msg["mensaje"]}\n'
-            f'- Imagen: {msg["file_id"]}\n'
+            f'- Imagen: {"Sí" if msg["file_id"] else "No"}\n'
         )
     print("[LOG] Estado consultado.")
     if estado_texto:
