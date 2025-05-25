@@ -1,8 +1,4 @@
 
-from pathlib import Path
-
-# Contenido actualizado del README.md
-readme_content = """
 # 🤖 Bot Autopublicador para Telegram
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Wito50/Bot_Autopublicador)
